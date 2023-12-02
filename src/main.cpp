@@ -29,6 +29,7 @@ void OnProgramLoad(const char *pluginName, const char *mainFilePath)
 void OnPluginStart()
 {
     db = new Database("default_connection");
+    if(!db->IsConnected()) return;
 }
 
 void OnPlayerConnected(Player* player)
