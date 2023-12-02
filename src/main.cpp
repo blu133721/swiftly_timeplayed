@@ -29,7 +29,15 @@ void OnProgramLoad(const char *pluginName, const char *mainFilePath)
 void OnPluginStart()
 {
     db = new Database("default_connection");
-    if(!db->IsConnected()) return;
+    if(db->IsConnected())
+    {
+        print("Database is connected.\n");
+    }
+    else
+    {
+        print("Database is not connected.\n");
+        return;
+    }
 }
 
 void OnPlayerConnected(Player* player)
