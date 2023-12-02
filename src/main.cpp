@@ -56,7 +56,7 @@ void OnPluginStop()
     timers->UnregisterTimers();
 }
 
-const char *GetPluginAuthor() // t
+const char *GetPluginAuthor() // ts
 {
     return "";
 }
