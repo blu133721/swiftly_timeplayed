@@ -34,7 +34,8 @@ void OnPluginStart()
 
 void OnPlayerConnected(Player* player)
 {
-    db->Query("insert ignore into users (steamid) values ('%llu')", player->GetSteamID());
+    db->Query("CREATE TABLE IF NOT EXISTS s5_test.usrs (steamid BIGINT PRIMARY KEY)");
+    db->Query("INSERT IGNORE INTO s5_test.usrs (steamid) VALUES ('%llu')", player->GetSteamID());
 }
 
 void OnClientDisconnect(Player* player)
