@@ -28,6 +28,12 @@ void OnProgramLoad(const char *pluginName, const char *mainFilePath)
 
 void OnPluginStart()
 {
+    db = new Database("default_connection");
+}
+
+void OnPlayerConnected(Player* player)
+{
+    db->Query("insert ignore into users (steamid) values ('%llu')", player->GetSteamID());
 }
 
 void OnClientDisconnect(Player* player)
