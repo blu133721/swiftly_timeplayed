@@ -30,6 +30,11 @@ void OnPluginStart()
 {
 }
 
+void OnClientDisconnect(Player* player)
+{
+    print("%s has played %d seconds on the server.\n", player->GetName(), player->GetConnectedTime());
+}
+
 void OnPluginStop()
 {
     timers->UnregisterTimers();
